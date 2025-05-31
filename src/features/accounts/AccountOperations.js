@@ -28,14 +28,14 @@ function AccountOperations() {
 
   function handleRequestLoan() {
     if(!loanAmount || !loanPurpose) return 
-    dispatch(requestLoan(loanAmount, loanPurpose))
+    dispatch(requestLoan({loanAmount, loanPurpose}))
     setLoanAmount("")
     setLoanPurpose("")
   }
 
   function handlePayLoan() {
     if(!loanRepayAmount) return 
-    dispatch(payLoan(loanRepayAmount))
+    dispatch(payLoan(Number(loanRepayAmount)))
     setLoanAmount(loanAmount => loanAmount - loanRepayAmount)
     setLoanRepayAmount("")
   }
